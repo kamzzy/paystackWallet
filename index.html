@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta(http-equiv='X-UA-Compatible', content='ie=edge') />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/custom.css">
+   
+    <script(src='https://use.fontawesome.com/releases/v5.0.13/js/solid.js', integrity='sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ', crossorigin='anonymous')></script>
+    <script( src='https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js', integrity='sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY', crossorigin='anonymous')></script>
+
+    <title>Receive Payment</title>
+  </head>
+  <body>
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Kamzzy's Wallet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </div>
+   
+  </nav>
+  </header>
+    <form name="checkoutForm", action='/pay', method='POST'>
+      <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="hidden" id="email" required />
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="hidden" id="amount" required />
+    </div>
+      <script src="https://js.paystack.co/v1/inline.js"></script> 
+      <button type="submit" >Check Out</button>
+    </form>
+<footer class="d-flex justify-content-center pt-5">
+  <p>&copy; 
+  <a(href='https://kamzzyprofile.herokuapp.com/'> kamzzy tech solutions </a></p>
+</footer>
+</div>
+    <!-- <script>
+      function payWithPaystack() {
+     var handler = PaystackPop.setup({
+      key: 'pk_test_0df16f8d6644440ae5bc02be1a6c888968bb292c', // Replace with your public key
+      amount: document.getElementById('amount').value * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+      currency: 'NGN',
+
+      redirect_url: "http://localhost:3000/response",
+      
+      // use customer details if user is not logged in, 
+      // else add user_id to the request
+      customer: {
+            email:document.getElementById('email'),
+            phone_number: "08088098622",
+            name: "Idris Olubisi",
+          },
+      // ref: "hooli-tx-1920bbtyt", // Replace with a reference you generated
+      callback: function(response) {
+        //this happens after the payment is completed successfully
+        // window.location = "http://localhost:3000/response?reference=" + response.reference;
+
+    },
+   onClose: function() {
+      alert('Transaction was not completed, window closed.');
+    },
+  });
+  handler.openIframe();
+}
+ 
+    </script> -->
+  </body>
+</html>
